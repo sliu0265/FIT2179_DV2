@@ -1,0 +1,50 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Average Internet Usage by Income Group (2024)",
+    "width": 400,
+    "height": 300,
+    "data": {"url": "../Data/Internet_usage.csv"},
+    "mark": "bar",
+    "transform": [
+        {
+            "lookup": "Country Code",
+            "from":{
+                "data": {"url": "../Data/IncomeGroup.csv"},
+                "key": "Code",
+                "fields": ["Income group"]
+            }
+        },
+        {
+        "filter": "datum['Income group'] != null && datum['Income group'] != ''"
+        }
+    ],
+    "encoding": {
+        "x":{
+            "field": "Income group",
+            "type": "nominal",
+            "title": "Income Group",
+            "sort": [
+                "Low income",
+                "Lower middle income",
+                "Upper middle income",
+                "High income"
+            ]
+        },
+        "y":{
+            "aggregate":"average",
+            "field": "2024",
+            "type": "quantitative",
+            "title": "Average Internet Usage"
+        },
+        "color": {
+            "field": "Income group",
+            "type": "nominal",
+            "title": "Income Group"
+        },
+        "tooltip":[
+            {"field":"Income group", "type": "nominal", "title":"Income group"},
+            {"aggregate":"average","field": "2024","type": "quantitative","title": "Average Internet Usage"}
+        ]
+    }
+
+}

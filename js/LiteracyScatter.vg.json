@@ -1,0 +1,59 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Internet Usage vs Adult Literacy Rate (2020)",
+    "width": 500,
+    "height": 350,
+    "data": {"url": "../Data/Internet_usage.csv"},
+    "mark": "circle",
+    "transform": [
+        {
+          "lookup": "Country Code",
+          "from": {
+            "data":{"url":"../Data/LiteracyRate.csv"},
+            "key": "Country Code",
+            "fields": ["2020"]
+          },
+        "as": "Literacy2020"
+        },
+        {
+          "filter": "datum['2020'] != null && datum['2020'] != '' && datum.Literacy2020 != null && datum.Literacy2020 != ''"
+        },
+        {
+          "calculate": "format(datum.Literacy2020, '.2f') + '%'",
+          "as": "Literacy2020Label"
+        },
+        {
+          "calculate": "format(datum['2020'], '.2f') + '%'",
+          "as": "Usage2020Label"
+        }
+    ],
+    "encoding": {
+        "x": {
+        "field": "Literacy2020",
+        "type": "quantitative",
+        "title": "Adualt Literacy Rate"
+        },
+        "y": {
+        "field": "2020",
+        "type": "quantitative",
+        "title": "Internet Usage (%)"
+        },
+        "tooltip": [
+        {
+            "field": "Country Name",
+            "type": "nominal",
+            "title": "Country"
+        },
+        {
+            "field": "Literacy2020Label",
+            "type": "nominal",
+            "title": "Literacy Rate"
+        },
+        {
+            "field": "Usage2020Label",
+            "type": "nominal",
+            "title": "Internet Usage (%)"
+        }
+        ]
+    }
+}

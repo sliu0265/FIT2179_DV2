@@ -1,0 +1,135 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "E-commerce Market Value vs Estimated Internet Users",
+        "subtitle": "Internet users: 2024; e-commerce: 2024 or 2023 if unavailable"
+    },
+    "width": 450,
+    "height": 320,
+    "mark": {
+        "type": "circle",
+        "size": 90
+    },
+    "data":{"url": "../Data/E-commerce.csv"},
+    "transform": [
+        {
+            "lookup": "Economy_Label",
+            "from":{
+                "data":{"url": "../Data/Internet_usage.csv"},
+                "key": "Country Name",
+                "fields": ["2024"]
+            },
+            "as":["InternetUsage"]
+        },
+        {
+            "lookup": "Economy_Label",
+            "from":{
+                "data":{"url": "../Data/Population.csv"},
+                "key": "Country Name",
+                "fields": ["2024"]
+            },
+            "as":["Population"]
+        },
+        {
+            "calculate": "datum['2024'] == '' || datum['2024'] == null ? toNumber(datum['2023_US_at_current_prices_in_millions_Value']) : toNumber(datum['2024'])",
+            "as": "EcommerceMarketMillion"
+        },
+        {
+            "calculate": "datum['2024'] == '' || datum['2024'] == null ? '2023' : '2024'",
+            "as": "DataYear"
+        },
+        {
+            "calculate": "datum.EcommerceMarketMillion / 1000",
+            "as": "EcommerceMarketBillion"
+        },
+        {
+            "calculate": "toNumber(datum.InternetUsage)",
+            "as": "InternetUsage2024"
+        },
+        {
+            "calculate": "toNumber(datum.Population)",
+            "as": "Population2024"
+        },
+        {
+            "calculate": "datum.Population2024 * datum.InternetUsage2024 / 100",
+            "as": "OnlinePopulation"
+        },
+        {
+            "calculate": "datum.OnlinePopulation / 1000000",
+            "as": "OnlinePopulationMillion"
+        },
+        {
+            "filter": "datum.EcommerceMarketBillion > 0 && datum.OnlinePopulationMillion > 0 && isValid(datum.InternetUsage2024)"
+        }
+        
+    ],
+    "encoding": {
+        "x": {
+            "field": "OnlinePopulationMillion",
+            "type": "quantitative",
+            "title": "Estimated Internet Users (millions)",
+            "scale": {
+                "type": "log"
+            },
+            "axis": {
+                "values": [1, 10, 100, 1000],
+                "labelExpr": "datum.value >= 1000 ? format(datum.value / 1000, ',.0f') + 'B' : format(datum.value, ',.0f') + 'M'"
+            }
+        },
+        "y": {
+            "field": "EcommerceMarketBillion",
+            "type": "quantitative",
+            "title": "E-commerce Market Value (US$ billions)",
+            "scale": {
+                "type": "log"
+            },
+            "axis": {
+                "values": [5, 10, 100, 1000, 5000],
+                "labelExpr": "datum.value >= 1000 ? '$' + format(datum.value / 1000, ',.0f') + 'T' : '$' + format(datum.value, ',.0f') + 'B'"
+            }
+        },
+        "color": {
+            "field": "InternetUsage2024",
+            "type": "quantitative",
+            "title": "Internet Usage (%)"
+        },
+        "tooltip": [
+            {
+                "field": "Economy_Label",
+                "type": "nominal",
+                "title": "Country"
+            },
+            {
+                "field": "OnlinePopulationMillion",
+                "type": "quantitative",
+                "title": "Estimated Internet Users (millions)",
+                "format": ".1f"
+            },
+            {
+                "field": "EcommerceMarketBillion",
+                "type": "quantitative",
+                "title": "E-commerce Market Value (US$ billions)",
+                "format": ".1f"
+            },
+            {
+                "field": "DataYear",
+                "type": "nominal",
+                "title": "E-commerce data year"
+            },
+            {
+                "field": "InternetUsage2024",
+                "type": "quantitative",
+                "title": "Internet Usage (%)",
+                "format": ".1f"
+            },
+            {
+                "field": "Population2024",
+                "type": "quantitative",
+                "title": "Population",
+                "format": ",.0f"
+            }
+        ]
+    }
+
+
+}

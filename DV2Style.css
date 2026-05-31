@@ -1,0 +1,74 @@
+.header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.Horizontal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.title-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.header h1 {
+    font-family: 'Playfair Display';
+    font-weight: 700;
+    margin: 0;
+    font-size: 46px;
+}
+
+.header p {
+    font-family: 'Caveat';
+    font-weight: 600;
+    margin-top: 16px;
+    font-size: 20px;
+}
+
+.part1 h2{
+    font-family: 'Playfair Display';
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.part2 h2{
+    font-family: 'Playfair Display';
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.TwoCol {
+    display: flex;
+    gap: 24px;
+}
+
+.card p{
+    font-family: 'Source Sans 3';
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.card {
+    flex: 1;
+    border: 1px solid;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.TwoColText {
+    display: flex;
+    gap: 24px;
+}
+
+.TwoColText p{
+    flex: 0.25;
+    font-family: 'Source Sans 3';
+    font-size: 18px;
+    line-height: 1.5;
+}
+

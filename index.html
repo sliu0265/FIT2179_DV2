@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Global Internet Access & Digital Economy</title>
+        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Playfair+Display:wght@500;700&family=Source+Sans+3:wght@400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="DV2Style.css">
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    </head>
+
+    <body>
+
+        <div class="header">
+            <div class="Horizontal">
+                <img src="Images/Globe.svg" alt="Global icon" class="title-icon">
+
+                <h1>Global Internet Access & Digital Economy</h1>
+
+                <img src="Images/WIFI.svg" alt="Internet icon" class="title-icon">
+            </div>
+            <p> A visual story of global connectivity, digital inequality, and the economic opportunities created by internet access.</p>
+        </div>
+
+        <section class="part1">
+            <h2>Global Internet Access and factors affecting it</h2>
+
+            <div class="card">
+                <div id="InternetMap"></div>
+                <p>
+                    This map shows global internet usage in 2024. Darker blue areas indicate countries with higher internet usage, 
+                    while lighter green areas show lower levels of connectivity. 
+                    The pattern highlights a clear digital divide between highly connected regions and countries where internet access remains limited.
+                </p>
+            </div>
+
+            <div class="TwoCol">
+                <div class="card">
+                    <div id="UsageHistogram"></div>
+                    <p>
+                        The distribution shows that many countries have high internet usage in 2024, with a large concentration above 80%. 
+                        However, some countries still remain in much lower usage ranges, showing that global connectivity is still uneven.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div id="AverageUsage"></div>
+                    <p>
+                        The chart highlights a clear digital divide across income groups in 2024. 
+                        Countries with higher income levels tend to have much greater internet usage, 
+                        while low-income countries show much lower connectivity, 
+                        indicating that economic development is closely linked to access to digital infrastructure.
+                    </p>
+                </div>
+            </div>
+
+            <div class="TwoColText">
+                <div id="UsageOvertime"></div>
+                <p>
+                    Internet usage has risen steadily across all income groups since 2000. 
+                    The most notable change is the rapid growth of upper middle-income countries, 
+                    which have almost caught up with high-income countries by 2025. 
+                    However, the gap remains much wider for lower middle-income and low-income countries, 
+                    showing that the global digital divide has narrowed at the top but still persists overall.
+                </p>
+            </div>
+
+            <div class="TwoCol">
+                <div class="card">
+                    <div id="UsageGDP"></div>
+                    <p>
+                        This bubble chart shows the relationship between GDP per capita and internet usage in 2024, with bubble size representing population. 
+                        Countries with higher GDP per capita generally have higher internet usage, 
+                        while countries with lower GDP per capita tend to have lower levels of connectivity. 
+                        The chart suggests that economic development is strongly linked to digital access, 
+                        although large-population countries can still show different patterns.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div id="LiteracyScatter"></div>
+                    <p>
+                        Countries with higher adult literacy rates generally show higher internet usage, suggesting a link between education and digital access. 
+                        However, differences between countries indicate that other factors, such as infrastructure and income, also influence connectivity.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="part2">
+            <h2>Digital Economy</h2>
+
+            <div class="card">
+                <div id="ICTImportMap"></div>
+                <p>
+                    ICT goods imports show a clear gap in global digital market scale. 
+                    China and the United States stand far above most other countries, 
+                    suggesting much larger technology demand supported by high internet usage and massive online markets. 
+                    In contrast, many countries with lower imports and weaker internet penetration may still have smaller or less mature digital markets.
+                </p>
+            </div>
+
+            <div class="TwoCol">
+                <div class="card">
+                    <div id="ICTTop10$"></div>
+                    <p>
+                        ICT service exports show that digital market strength is not only about hardware. 
+                        Except for India, most top ICT service exporters also have high internet penetration, suggesting mature digital environments. 
+                        India stands out despite its lower internet usage rate, reflecting its strong role in global ICT services and outsourcing.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div id="ICTTop10%"></div>
+                    <p>
+                        As a share of GDP, ICT service exports show how dependent some economies are on digital services. 
+                        Countries such as Israel and Ireland combine high export shares with high internet usage, suggesting mature digital service environments. 
+                        India and some developing countries also stand out, showing that ICT services can become a major economic driver even when internet penetration is not equally high.
+                    </p>
+                </div>
+            </div>
+
+            <div class="TwoCol">
+                <div class="card">
+                    <div id="E-commerceMarket"></div>
+                    <p>
+                        E-commerce market value shows how internet use turns into consumer market power. 
+                        The United States and China dominate the global ranking, far ahead of other economies, 
+                        suggesting that large connected populations and mature digital platforms create much stronger online markets. 
+                        In comparison, European countries appear in the top 10 but at a much smaller scale.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div id="ScatterE-commerce"></div>
+                    <p>
+                        This chart shows a clear positive relationship between estimated internet users and e-commerce market value. 
+                        Economies with larger connected populations tend to have much bigger online markets, 
+                        while high internet usage rates further support digital consumption. 
+                        However, the gap between leading markets and smaller economies remains large, 
+                        showing that internet access alone does not always translate equally into e-commerce scale.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            vegaEmbed("#InternetMap", "js/InternetMap.vg.json");
+            vegaEmbed("#UsageHistogram", "js/UsageHistogram.vg.json");
+            vegaEmbed("#AverageUsage", "js/AverageUsage.vg.json");
+            vegaEmbed("#UsageOvertime", "js/UsageOverTime.vg.json");
+            vegaEmbed("#UsageGDP", "js/UsageGDP.vg.json");
+            vegaEmbed("#LiteracyScatter", "js/LiteracyScatter.vg.json");
+            vegaEmbed("#ICTImportMap", "js/ICTImportMap.vg.json");
+            vegaEmbed("#ICTTop10$", "js/ICTTop10$.vg.json");
+            vegaEmbed("#ICTTop10%", "js/ICTTop10%25.vg.json");
+            vegaEmbed("#E-commerceMarket", "js/E-commerceMarket.vg.json");
+            vegaEmbed("#ScatterE-commerce", "js/E-commerceMarketUsage.vg.json");
+        </script>
+    </body>

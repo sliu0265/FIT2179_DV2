@@ -1,0 +1,66 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Internet Usage Over Time by Income Group (2000-2025)",
+    "width": 400,
+    "height": 300,
+    "data": {"url": "../Data/Internet_usage_long.csv"},
+    "mark": {"type":"line","point":true},
+    "transform": [
+        {
+            "lookup": "Country Code",
+            "from":{
+                "data": {"url": "../Data/IncomeGroup.csv"},
+                "key": "Code",
+                "fields": ["Income group"]
+            }
+        },
+        {
+        "filter": "datum['Income group'] != null && datum['Income group'] != ''"
+        }
+    ],
+    "encoding": {
+        "x": {
+            "field": "Year",
+            "type": "ordinal",
+            "title": "Year"
+        },
+        "y": {
+            "aggregate":"average",
+            "field": "Usage",
+            "type": "quantitative",
+            "title": "Average Internet Usage (%)"
+        },
+        "color": {
+            "field": "Income group",
+            "type": "nominal",
+            "title": "Income Group",
+            "sort": [
+                "High income",
+                "Upper middle income",
+                "Lower middle income",
+                "Low income"
+            ]
+        },
+        "tooltip": [
+            {
+                "field": "Income group",
+                "type":  "nominal",
+                "title": "Income Group"
+            },
+            {
+                "aggregate":"average",
+                "field": "Usage",
+                "type": "quantitative",
+                "title": "Average Internet Usage (%)"
+            },
+            {
+                "field": "Year",
+                "type": "ordinal",
+                "title": "Year"
+            }
+        ]
+    }
+}
+
+
+

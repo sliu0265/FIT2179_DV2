@@ -1,0 +1,72 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "Top 10 Economies by E-commerce Market Value",
+        "subtitle": "(2024 values, using 2023 where 2024 is unavailable)"
+    },
+    "width": 400,
+    "height": 300,
+    "mark":"bar",
+    "data":{"url": "../Data/E-commerce.csv"},
+    "transform": [
+        {
+            "calculate": "datum['2024'] == '' || datum['2024'] == null ? toNumber(datum['2023_US_at_current_prices_in_millions_Value']) : toNumber(datum['2024'])",
+            "as": "EcommerceMarketMillion"
+        },
+        {
+            "calculate": "datum['2024'] == '' || datum['2024'] == null ? '2023' : '2024'",
+            "as": "DataYear"
+        },
+        {
+            "calculate": "datum.EcommerceMarketMillion / 1000",
+            "as": "EcommerceMarketBillion"
+        },
+        {
+            "filter": "datum.EcommerceMarketMillion > 0"
+        },
+        {
+            "window": [{"op": "row_number", "as": "Rank"}],
+            "sort": [{"field": "EcommerceMarketMillion", "order": "descending"}]
+        },
+        {
+            "filter": "datum.Rank <= 10"
+        }
+        
+    ],
+    "encoding": {
+        "x": {
+            "field": "EcommerceMarketBillion",
+            "type": "quantitative",
+            "title": "E-commerce Market Value (US$ billions)",
+            "axis": {
+                "labelExpr": "'$' + datum.label + 'B'"
+            }
+            },
+        "y": {
+            "field": "Economy_Label",
+            "type": "nominal",
+            "title": "Economy",
+            "sort": {"field": "EcommerceMarketMillion", "order": "descending"}
+            },
+        "tooltip": [
+            {
+                "field": "Economy_Label",
+                "type": "nominal",
+                "title": "Country"
+            },
+            {
+                "field": "EcommerceMarketBillion",
+                "type": "quantitative",
+                "title": "E-commerce Market Value (US$ billions)",
+                "format": ".1f"
+            },
+            {
+                "field": "DataYear",
+                "type": "nominal",
+                "title": "Data year"
+            }
+        ]
+    }
+
+
+}

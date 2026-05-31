@@ -1,0 +1,59 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 350,
+  "data": {
+    "url": "../Data/Internet_usage.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum['2024'] != null && datum['2024'] !== ''"
+    },
+    {
+      "bin": {
+        "maxbins": 10
+      },
+      "field": "2024",
+      "as": ["usage_bin_start", "usage_bin_end"]
+    }
+  ],
+  "mark": {
+    "type":"bar",
+    "color":"skyblue"
+  },
+  "encoding": {
+    "x": {
+      "field": "usage_bin_start",
+      "type": "quantitative",
+      "bin": "binned",
+      "title": "Percentage of Internet Usage"
+    },
+    "x2": {
+      "field": "usage_bin_end"
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "title": "Number of Countries"
+    },
+    "tooltip": [
+      {
+        "field": "usage_bin_start",
+        "type": "quantitative",
+        "title": "Usage from (%)",
+        "format": ".1f"
+      },
+      {
+        "field": "usage_bin_end",
+        "type": "quantitative",
+        "title": "Usage to (%)",
+        "format": ".1f"
+      },
+      {
+        "aggregate": "count",
+        "type": "quantitative",
+        "title": "Number of Countries"
+      }
+    ]
+  }
+}
