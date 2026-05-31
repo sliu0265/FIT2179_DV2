@@ -4,8 +4,12 @@
         "text": "E-commerce Market Value vs Estimated Internet Users",
         "subtitle": "Internet users: 2024; e-commerce: 2024 or 2023 if unavailable"
     },
-    "width": 450,
+    "width": "container",
     "height": 320,
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
     "mark": {
         "type": "circle",
         "size": 90

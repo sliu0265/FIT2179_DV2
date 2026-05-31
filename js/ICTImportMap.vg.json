@@ -1,8 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "ICT Goods Imports 2024",
-  "width": 800,
+  "width": "container",
   "height": 500,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
   "projection": {"type": "equalEarth"},
   "data": {
         "url": "Data/ne_110m_admin_0_countries.topojson",

@@ -1,8 +1,12 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Internet Usage vs Adult Literacy Rate (2020)",
-    "width": 500,
+    "width": "container",
     "height": 350,
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
     "data": {"url": "Data/Internet_usage.csv"},
     "mark": "circle",
     "transform": [

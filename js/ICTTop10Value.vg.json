@@ -1,8 +1,12 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Top 10 Countries by ICT Service Export Value, 2024",
-    "width": 400,
+    "width": "container",
     "height": 300,
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
     "mark":"bar",
     "data":{"url": "Data/ICT_service_export_US$.csv"},
     "transform": [

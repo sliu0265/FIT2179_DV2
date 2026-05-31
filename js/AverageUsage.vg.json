@@ -1,8 +1,12 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Average Internet Usage by Income Group (2024)",
-    "width": 400,
+    "width": "container",
     "height": 300,
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
     "data": {"url": "Data/Internet_usage.csv"},
     "mark": "bar",
     "transform": [

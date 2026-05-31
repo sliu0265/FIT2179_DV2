@@ -4,8 +4,12 @@
         "text": "Top 10 Economies by E-commerce Market Value",
         "subtitle": "(2024 values, using 2023 where 2024 is unavailable)"
     },
-    "width": 400,
+    "width": "container",
     "height": 300,
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
     "mark":"bar",
     "data":{"url": "Data/E-commerce.csv"},
     "transform": [
