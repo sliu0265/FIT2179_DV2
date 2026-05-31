@@ -71,8 +71,9 @@
     line-height: 1.5;
 }
 
-.card .map {
+.card > div {
     width: 100%;
+    min-width: 0;
 }
 
 .TwoColText {
