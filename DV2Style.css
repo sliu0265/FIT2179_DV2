@@ -41,6 +41,12 @@
     font-size: 30px;
 }
 
+.part1,
+.part2 {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
 .TwoCol {
     display: flex;
     gap: 24px;
@@ -54,6 +60,7 @@
 
 .card {
     flex: 1;
+    min-width: 0;
     border: 1px solid;
     border-radius: 12px;
     padding: 20px;
@@ -63,6 +70,11 @@
 .TwoColText {
     display: flex;
     gap: 24px;
+}
+
+.TwoColText > div {
+    flex: 1;
+    min-width: 0;
 }
 
 .TwoColText p{
