@@ -3,13 +3,13 @@
     "title": "Average Internet Usage by Income Group (2024)",
     "width": 400,
     "height": 300,
-    "data": {"url": "../Data/Internet_usage.csv"},
+    "data": {"url": "Data/Internet_usage.csv"},
     "mark": "bar",
     "transform": [
         {
             "lookup": "Country Code",
             "from":{
-                "data": {"url": "../Data/IncomeGroup.csv"},
+                "data": {"url": "Data/IncomeGroup.csv"},
                 "key": "Code",
                 "fields": ["Income group"]
             }

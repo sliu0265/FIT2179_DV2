@@ -3,13 +3,13 @@
     "title": "Internet Usage Over Time by Income Group (2000-2025)",
     "width": 400,
     "height": 300,
-    "data": {"url": "../Data/Internet_usage_long.csv"},
+    "data": {"url": "Data/Internet_usage_long.csv"},
     "mark": {"type":"line","point":true},
     "transform": [
         {
             "lookup": "Country Code",
             "from":{
-                "data": {"url": "../Data/IncomeGroup.csv"},
+                "data": {"url": "Data/IncomeGroup.csv"},
                 "key": "Code",
                 "fields": ["Income group"]
             }

@@ -3,13 +3,13 @@
     "title": "Internet Usage vs Adult Literacy Rate (2020)",
     "width": 500,
     "height": 350,
-    "data": {"url": "../Data/Internet_usage.csv"},
+    "data": {"url": "Data/Internet_usage.csv"},
     "mark": "circle",
     "transform": [
         {
           "lookup": "Country Code",
           "from": {
-            "data":{"url":"../Data/LiteracyRate.csv"},
+            "data":{"url":"Data/LiteracyRate.csv"},
             "key": "Country Code",
             "fields": ["2020"]
           },

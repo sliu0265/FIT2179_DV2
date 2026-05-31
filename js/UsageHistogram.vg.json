@@ -3,7 +3,7 @@
   "width": 500,
   "height": 350,
   "data": {
-    "url": "../Data/Internet_usage.csv"
+    "url": "Data/Internet_usage.csv"
   },
   "transform": [
     {

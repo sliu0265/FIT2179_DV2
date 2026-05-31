@@ -3,13 +3,13 @@
     "title": "Internet Usage, GDP per Capita and Population (2024)",
     "width": 500,
     "height": 350,
-    "data": {"url": "../Data/Internet_usage.csv"},
+    "data": {"url": "Data/Internet_usage.csv"},
     "mark": "circle",
     "transform": [
         {
           "lookup": "Country Code",
           "from": {
-            "data":{"url":"../Data/GDP.csv"},
+            "data":{"url":"Data/GDP.csv"},
             "key": "Country Code",
             "fields": ["2024"]
           },
@@ -18,7 +18,7 @@
         {
           "lookup": "Country Code",
           "from": {
-            "data":{"url":"../Data/Population.csv"},
+            "data":{"url":"Data/Population.csv"},
             "key": "Country Code",
             "fields": ["2024"]
           },

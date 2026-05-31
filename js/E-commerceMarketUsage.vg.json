@@ -10,12 +10,12 @@
         "type": "circle",
         "size": 90
     },
-    "data":{"url": "../Data/E-commerce.csv"},
+    "data":{"url": "Data/E-commerce.csv"},
     "transform": [
         {
             "lookup": "Economy_Label",
             "from":{
-                "data":{"url": "../Data/Internet_usage.csv"},
+                "data":{"url": "Data/Internet_usage.csv"},
                 "key": "Country Name",
                 "fields": ["2024"]
             },
@@ -24,7 +24,7 @@
         {
             "lookup": "Economy_Label",
             "from":{
-                "data":{"url": "../Data/Population.csv"},
+                "data":{"url": "Data/Population.csv"},
                 "key": "Country Name",
                 "fields": ["2024"]
             },
