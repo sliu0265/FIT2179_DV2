@@ -67,6 +67,16 @@
     margin-bottom: 24px;
 }
 
+.card > div {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+#InternetMap,
+#ICTImportMap {
+    max-width: 1100px;
+}
+
 .TwoColText {
     display: flex;
     gap: 24px;
