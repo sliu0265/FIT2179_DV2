@@ -66,10 +66,6 @@
     margin-bottom: 24px;
 }
 
-.card .map {
-    width: 100%;
-}
-
 .TwoColText {
     display: flex;
     gap: 24px;
