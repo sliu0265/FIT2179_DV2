@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Internet Usage Over Time by Income Group (2000-2025)",
     "width": "container",
-    "height": 300,
+    "height": 450,
     "autosize": {
       "type": "fit",
       "contains": "padding"
