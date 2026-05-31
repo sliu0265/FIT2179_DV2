@@ -64,10 +64,10 @@
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 24px;
+}
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.card .map {
+    width: 100%;
 }
 
 .TwoColText {
